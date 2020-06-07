@@ -31,11 +31,26 @@ All versions of the image are built from the same set of scripts with only minor
 
 Everytime the image is updated, all tags will be pushed with the latest updates. This should allow for greater consistency across tags, as well as any security updates that have been made to the base image.
 
+Multi Architecture Support
+--------------------------
+
+This image supports multiple architectures
+
+- for a list of supported architectures see [https://github.com/wurstmeister/kafka-docker/blob/master/.travis.yml#L13](Supported Architectures)
+
+References:
+
+- https://github.com/docker/buildx
+- https://docs.docker.com/buildx/working-with-buildx/
+- https://medium.com/@quentin.mcgaw/cross-architecture-docker-builds-with-travis-ci-arm-s390x-etc-8f754e20aaef
+- https://github.com/multiarch/qemu-user-static
+
 ---
 
 ## Announcements
 
 * **04-Jun-2019** - Update base image to openjdk 212 ([Release notes](https://www.oracle.com/technetwork/java/javase/8u212-relnotes-5292913.html). Please force pull to get these latest updates - including security patches etc.
+* **08-Jun-2020** - Added multi arch support
 
 ---
 

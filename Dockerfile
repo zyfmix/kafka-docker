@@ -6,6 +6,10 @@ ARG glibc_version=2.31-r0
 ARG vcs_ref=unspecified
 ARG build_date=unspecified
 
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+RUN echo "Building for $TARGETPLATFORM"
+
 LABEL org.label-schema.name="kafka" \
       org.label-schema.description="Apache Kafka" \
       org.label-schema.build-date="${build_date}" \

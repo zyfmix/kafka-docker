@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-BASE_IMAGE="wurstmeister/kafka"
+BASE_IMAGE="wurstmeister/test"
 IMAGE_VERSION="$1"
 
 if [ -z "$IMAGE_VERSION" ]; then
@@ -10,5 +10,5 @@ fi
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 TARGET="$BASE_IMAGE:$IMAGE_VERSION"
-docker tag "$BASE_IMAGE" "$TARGET"
-docker push "$TARGET"
+
+docker buildx build --progress plain --platform=$ARCHITECTURES --build-arg kafka_version=$KAFKA_VERSION --build-arg scala_version=$TRAVIS_SCALA_VERSION --build-arg vcs_ref=$TRAVIS_COMMIT --build-arg build_date=$(date -u +"%Y-%m-%dT%H:%M:%SZ") -t "$TARGET" --push .
