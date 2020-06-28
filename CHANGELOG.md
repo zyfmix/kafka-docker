@@ -3,6 +3,12 @@ Changelog
 
 Kafka features are not tied to a specific kafka-docker version (ideally all changes will be merged into all branches). Therefore, this changelog will track changes to the image by date.
 
+-2020
+-----------
+
+-   Add support for multi arch builds
+-   Drop support for versions < 2.2.2
+
 20-Apr-2020
 -----------
 

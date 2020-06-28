@@ -51,6 +51,7 @@ References:
 
 * **04-Jun-2019** - Update base image to openjdk 212 ([Release notes](https://www.oracle.com/technetwork/java/javase/8u212-relnotes-5292913.html). Please force pull to get these latest updates - including security patches etc.
 * **08-Jun-2020** - Added multi arch support
+* **08-Jun-2020** - Removed builds for version < 2.2.2
 
 ---
 
