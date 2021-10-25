@@ -1,0 +1,13 @@
+{
+  "version":1,
+  "partitions":[
+    {"topic":"vcs-sn-event-beta","partition":0,"replicas":[0,1]},
+    {"topic":"vcs-sn-event-beta","partition":1,"replicas":[1,2]},
+    {"topic":"vcs-sn-event-beta","partition":2,"replicas":[2,0]},
+    {"topic":"vcs-sn-event-beta","partition":3,"replicas":[0,1]},
+    {"topic":"vcs-sn-event-beta","partition":4,"replicas":[1,2]},
+    {"topic":"vcs-sn-event-beta","partition":5,"replicas":[2,0]},
+    {"topic":"vcs-sn-event-beta","partition":6,"replicas":[0,1]},
+    {"topic":"vcs-sn-event-beta","partition":7,"replicas":[1,2]}
+  ]
+}

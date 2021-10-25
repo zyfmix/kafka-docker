@@ -1,0 +1,9 @@
+{
+  "version":1,
+  "partitions":[
+    {"topic":"online_brtc_action_event","partition":0,"replicas":[1,2]},
+    {"topic":"online_brtc_action_event","partition":1,"replicas":[2,0]},
+    {"topic":"online_brtc_action_event","partition":2,"replicas":[0,1]},
+    {"topic":"online_brtc_action_event","partition":3,"replicas":[1,2]}
+  ]
+}

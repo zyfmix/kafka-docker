@@ -1,0 +1,8 @@
+{
+  "version":1,
+  "partitions":[
+    {"topic":"vcs-sn-change-dev","partition":0,"replicas":[1,2]},
+    {"topic":"vcs-sn-change-dev","partition":1,"replicas":[2,0]},
+    {"topic":"vcs-sn-change-dev","partition":2,"replicas":[0,1]}
+  ]
+}

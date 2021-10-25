@@ -64,16 +64,80 @@ docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh -
 
 ********************************************************************************************************************************************************************************************************
 
-### kafkacat 用法
+### kafkacat 安装
+
+MacOS
 
 ```bash
 brew install kafkacat
 ```
 
+源码编译安装
+
+```bash
+yum update -y && yum install gcc-c++ git librdkafka-devel -y
+```
+
+> 在 CentOS 上使用以上命令找不到官方安装包,于是使用以下方法源码编译安装 `librdkafka`
+
+```bash
+sudo yum install -y  openssl-devel cyrus-sasl
+git clone git@github.com:edenhill/librdkafka.git
+cd librdkafka
+./configure --install-deps
+make
+sudo make install
+```
+
+开始编译
+
+```bash
+git clone https://github.com/edenhill/kafkacat
+cd kafkacat && ./configure
+make && make install
+```
+
+[](https://blog.yowko.com/centos-kafkacat/)
+
+如果执行 `kafkacat` 命令报以下错误
+
+> Error while loading shared libraries: librdkafka.so.1: cannot open shared object file: No such file or directory
+
+则添加到 ld 配置库
+
+```bash
+echo "/usr/local/lib">> /etc/ld.so.conf
+ldconfig 
+```
+
+[Error while loading shared libraries: librdkafka.so.1: cannot open shared object file: No such file or directory](https://github.com/edenhill/librdkafka/issues/466)
+
+### 用法
+
 订阅一个主题
 
 ```bash
-kafkacat -b 127.0.0.1:9092 -t sne
+kafkacat -b 127.0.0.1:9092 -t test
 ```
+
+* 生产者 producer
+
+```bash
+kafkacat -P -b 127.0.0.1:9092 -t test
+```
+
+* 消费者 consumer
+
+```bash
+kafkacat -b 127.0.0.1:9092 -t test
+```
+
+* 查看 topics
+
+```bash
+
+```
+
+kafkacat -b 182.92.226.149:9092,182.92.226.149:9093,182.92.226.149:9094 -G rtc-zyf-group vloud-collection-zyf
 
 ********************************************************************************************************************************************************************************************************

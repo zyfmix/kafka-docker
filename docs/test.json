@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "partitions": [
+    {
+      "topic": "rtc-message-dev",
+      "partition": 0,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 1,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 2,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 3,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 4,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 5,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 6,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 7,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 8,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 9,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 10,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 11,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 12,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 13,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 14,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 15,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 16,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 17,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 18,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 19,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 20,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 21,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 22,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 23,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 24,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 25,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 26,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 27,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 28,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 29,
+      "replicas": [
+        1
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 30,
+      "replicas": [
+        0
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "rtc-message-dev",
+      "partition": 31,
+      "replicas": [
+        2
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    }
+  ]
+}

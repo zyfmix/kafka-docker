@@ -24,6 +24,19 @@ ENV PATH=${PATH}:${KAFKA_HOME}/bin
 
 COPY download-kafka.sh start-kafka.sh broker-list.sh create-topics.sh versions.sh /tmp/
 
+#RUN echo http://mirror.yandex.ru/mirrors/alpine/v3.5/main > /etc/apk/repositories; \
+#    echo http://mirror.yandex.ru/mirrors/alpine/v3.5/community >> /etc/apk/repositories
+
+#RUN apk update \
+# && apk add --no-cache \
+#
+#RUN apk update \
+#        --update-cache \
+#        --repository https://alpine.global.ssl.fastly.net/alpine/edge/community \
+#        --repository https://alpine.global.ssl.fastly.net/alpine/edge/main
+
+#RUN apk add --no-cache bash
+
 RUN apk add --no-cache bash curl jq docker \
  && chmod a+x /tmp/*.sh \
  && mv /tmp/start-kafka.sh /tmp/broker-list.sh /tmp/create-topics.sh /tmp/versions.sh /usr/bin \

@@ -1,0 +1,13 @@
+{
+  "version":1,
+  "partitions":[
+    {"topic":"vcs-sn-event","partition":0,"replicas":[2,0]},
+    {"topic":"vcs-sn-event","partition":1,"replicas":[0,1]},
+    {"topic":"vcs-sn-event","partition":2,"replicas":[1,2]},
+    {"topic":"vcs-sn-event","partition":3,"replicas":[2,0]},
+    {"topic":"vcs-sn-event","partition":4,"replicas":[0,1]},
+    {"topic":"vcs-sn-event","partition":5,"replicas":[1,2]},
+    {"topic":"vcs-sn-event","partition":6,"replicas":[2,0]},
+    {"topic":"vcs-sn-event","partition":7,"replicas":[0,1]}
+  ]
+}
