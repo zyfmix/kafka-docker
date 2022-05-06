@@ -1,0 +1,9 @@
+{
+  "version":1,
+  "partitions":[
+    {"topic":"collection-dev","partition":0,"replicas":[2,1]},
+    {"topic":"collection-dev","partition":1,"replicas":[101,2]},
+    {"topic":"collection-dev","partition":2,"replicas":[105,101]},
+    {"topic":"collection-dev","partition":3,"replicas":[1,105]}
+  ]
+}

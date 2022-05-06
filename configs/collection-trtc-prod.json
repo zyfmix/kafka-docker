@@ -1,0 +1,17 @@
+{
+  "version":1,
+  "partitions":[
+    {"topic":"collection-trtc-prod","partition":0,"replicas":[0,1]},
+    {"topic":"collection-trtc-prod","partition":1,"replicas":[1,101]},
+    {"topic":"collection-trtc-prod","partition":2,"replicas":[2,101]},
+    {"topic":"collection-trtc-prod","partition":3,"replicas":[101,0]},
+    {"topic":"collection-trtc-prod","partition":4,"replicas":[105,1]},
+    {"topic":"collection-trtc-prod","partition":5,"replicas":[0,2]},
+    {"topic":"collection-trtc-prod","partition":6,"replicas":[1,101]},
+    {"topic":"collection-trtc-prod","partition":7,"replicas":[2,105]},
+    {"topic":"collection-trtc-prod","partition":8,"replicas":[101,0]},
+    {"topic":"collection-trtc-prod","partition":9,"replicas":[105,2]},
+    {"topic":"collection-trtc-prod","partition":10,"replicas":[0,105]},
+    {"topic":"collection-trtc-prod","partition":11,"replicas":[1,0]}
+  ]
+}
