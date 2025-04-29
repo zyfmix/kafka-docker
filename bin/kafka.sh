@@ -16,6 +16,17 @@ RUNNER=${1:-"rtc-online"}
 
 ([ "$RUNNER" != "brtc-local" ] && [ "$RUNNER" != "brtc-test" ] && [ "$RUNNER" != "rtc-dev" ] && [ "$RUNNER" != "rtc-online" ] && [ "$RUNNER" != "rtc-aliyun" ] && [ "$RUNNER" != "msms-test" ] && [ "$RUNNER" != "msms-online" ] && [ "$RUNNER" != "reset" ]) && echo "参数[RUNNER: $RUNNER]不合法,目前仅支持[brtc-local,brtc-test,rtc-dev,rtc-online,reset]!" && exit
 
+#[Support for --delete-offsets for consumer group topic](https://github.com/Shopify/sarama/issues/1912)
+#docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server internal-kafka-cluster03.baijiayun.com:9092 --delete-offsets --group logstash --topic online-bdata-vcollections-vrtc-report
+#docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server internal-kafka-cluster03.baijiayun.com:9092 --delete-offsets --group logstash --topic online-bdata-vcollections-vrtc-report
+docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server internal-kafka-cluster03.baijiayun.com:9092 --delete-offsets --group logstash --topic online-bdata-vconsole-rtc-event
+docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server internal-kafka-cluster03.baijiayun.com:9092 --delete-offsets --group logstash --topic online-bdata-vconsole-rtc-change
+docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server internal-kafka-cluster03.baijiayun.com:9092 --delete-offsets --group logstash --topic online-rtc-bmcu-message
+docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server internal-kafka-cluster03.baijiayun.com:9092 --delete-offsets --group logstash --topic online-bdata-vconsole-mcu-notify
+docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server internal-kafka-cluster03.baijiayun.com:9092 --delete-offsets --group logstash --topic rtc-message-prod
+
+exit
+
 [ "$RUNNER" == "brtc-local" ] && {
   BSP=1.ucs.iirii.com:9092
 
@@ -103,12 +114,19 @@ RUNNER=${1:-"rtc-online"}
   BSP=172.17.1.18:9092,172.17.1.19:9092,172.17.1.20:9092,172.17.0.105:9092,172.17.0.106:9092
 
   # Topics 列表
-  docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --list
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --list
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic rtc-message-zyf --partitions 32
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --delete --topic cdn-pull-dev
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --delete --topic cdn-pull-beta
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic cdn-pull-beta --partitions 3 --replication-factor 2
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic cdn-pull-prod --partitions 3 --replication-factor 2
+
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic test-vcollections-blive-report --partitions 3
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic beta-vcollections-blive-report --partitions 4
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic online-vcollections-blive-report --partitions 12 --replication-factor 2
+
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic online-vloud-sdk-log --replication-factor 2 --partitions 12
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --create --topic beta-vloud-sdk-log --replication-factor 2 --partitions 4
 
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --alter --zookeeper 39.102.102.178:2181 --topic cdn-pull-beta --partitions 3
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --alter --zookeeper 39.102.102.178:2181 --topic cdn-pull-prod --partitions 12
@@ -127,6 +145,14 @@ RUNNER=${1:-"rtc-online"}
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --describe --topic online_brtc_stats_event
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --describe --topic online_rtc_action_event
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --describe --topic online_brtc_action_event
+
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --describe --topic test-vcollections-blive-report
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --describe --topic beta-vcollections-blive-report
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --describe --topic online-vcollections-blive-report
+
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --alter --zookeeper 39.102.102.178:2181 --topic rtc-message-local --partitions 8
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --alter --zookeeper 39.102.102.178:2181 --topic vcs-sn-event-local --partitions 8
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --alter --zookeeper 39.102.102.178:2181 --topic vcs-sn-change-local --partitions 8
 
   # 重置指定分区的offset
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group rectifier --topic rtc-message-prod:26 --reset-offsets --to-offset 1 --execute
@@ -162,12 +188,12 @@ RUNNER=${1:-"rtc-online"}
   #for loop in "online_brtc_stats_event"; do
   #for loop in "online_rtc_action_event"; do
   #for loop in "collection-dev"; do
-  for loop in "collection-trtc-prod"; do
-    echo "Start Alert Topic Env:$loop"
+  #for loop in "collection-trtc-prod"; do
+  #  echo "Start Alert Topic Env:$loop"
     # [](https://blog.knoldus.com/devops-shorts-how-to-increase-the-replication-factor-for-a-kafka-topic/)
     #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server=$BSP --describe --topic $loop
     #docker run --rm -v /home/worker/test/kafka/configs:/opt/kafka/configs -it wurstmeister/kafka /opt/kafka/bin/kafka-reassign-partitions.sh --bootstrap-server=$BSP --reassignment-json-file /opt/kafka/configs/$loop.json --execute
-  done
+  #done
 
   # 消费组列表
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --list
@@ -208,15 +234,18 @@ RUNNER=${1:-"rtc-online"}
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --topic cdn-pull-dev --reset-offsets --to-datetime 2022-01-01T07:20:00.000 --execute
 
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --topic rtc-message-dev --delete-offsets
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --topic vcs-sn-change-dev --delete-offsets
 
   # 消费组详情
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group default --describe
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe
-  docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep rtc-message-dev
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep rtc-message-dev
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep rtc-message-beta
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep rtc-message-prod
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep collection-prod
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep collection-trtc-prod
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep online-vconsole-event
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group logstash --describe | grep online-vconsole-change
 
   # console-sne
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group test-vconsole-event --describe
@@ -231,11 +260,16 @@ RUNNER=${1:-"rtc-online"}
   # rectifier-rtc-message
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group rectifier --describe | grep rtc-message
   docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group vrc-beta --describe | grep rtc-message-beta
-  docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group vrc-test --describe | grep rtc-message-dev
+  #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group vrc-test --describe | grep rtc-message-dev
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group vrc-local --describe
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group rtc-zyf-group --describe | grep rtc-message-dev
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group rtc-zyf-group --describe
   #docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group group-online-kafka-cdn-stats --describe
+
+  # Player数据上报
+  docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group test-kafka-muti-cdn-event --describe
+  docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group beta-kafka-muti-cdn-event --describe
+  docker run --rm -it wurstmeister/kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server=$BSP --group online-kafka-muti-cdn-event --describe
 
   # 删除组 rectifier 曾消费过的主题 rtc-message-beta
   # [](https://stackoverflow.com/questions/63704988/how-to-remove-a-kafka-consumer-group-from-a-specific-topic)
